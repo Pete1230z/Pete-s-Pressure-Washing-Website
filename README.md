@@ -16,6 +16,10 @@ Line 14: Changed title to Pete's Pressure Washing
 ```html
 <title>Pete's Pressure Washing</title>
 ```
+Line 19: Changed h1 to Pete's Pressure Washing
+```html
+<h1>Pete's Pressure Washing</h1>
+```
 
 D.  Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.
 
