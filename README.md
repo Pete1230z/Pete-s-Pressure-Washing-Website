@@ -28,6 +28,12 @@ Line 53: Changed h2 to Pressure Washing Products
 ```html
 <h2>Pressure Washing Products</h2>
 ```
+Line 91-93: Added a footer
+```html
+<footer>
+    Copyright 2024, Pete's Pressure Washing
+</footer>
+```
 
 D.  Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.
 
