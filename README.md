@@ -24,6 +24,10 @@ Line 21: Changed h2 to Pressure Washing Parts
 ```html
 <h2>Pressure Washing Parts</h2>
 ```
+Line 53: Changed h2 to Pressure Washing Products
+```html
+<h2>Pressure Washing Products</h2>
+```
 
 D.  Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.
 
