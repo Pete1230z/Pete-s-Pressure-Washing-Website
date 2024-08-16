@@ -145,6 +145,26 @@ Lines 56-57: Added a map to navigate to the about page
     }
 ```
 
+Lines 27-40: Added a new repo for inhouse parts
+```java
+@Component
+public class BootStrapData implements CommandLineRunner {
+
+    private final PartRepository partRepository;
+    private final ProductRepository productRepository;
+    private final InhousePartRepository inhousePartRepository;
+    private final OutsourcedPartRepository outsourcedPartRepository;
+
+    public BootStrapData(PartRepository partRepository, ProductRepository productRepository, InhousePartRepository inhousePartRepository, OutsourcedPartRepository outsourcedPartRepository) {
+        this.partRepository = partRepository;
+        this.productRepository = productRepository;
+        this.inhousePartRepository = inhousePartRepository;
+        this.outsourcedPartRepository = outsourcedPartRepository;
+    }
+}
+```
+
+
 E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.
 Note: Make sure the sample inventory is added only when both the part and product lists are empty. When adding the sample inventory appropriate for the store, the inventory is stored in a set so duplicate items cannot be added to your products. When duplicate items are added, make a “multi-pack” part.
 
