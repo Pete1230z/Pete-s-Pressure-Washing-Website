@@ -331,9 +331,9 @@ F.  Add a “Buy Now” button to your product list. Your “Buy Now” button m
 
 <strong>Filename: mainscreen.html</strong>
 
-Line 46: Added a Buy Now Button
+Line 82: Added a Buy Now Button in the product list
 ```html
-<a th:href="@{/buyNow(partID=${tempPart.id})}" class="btn btn-primary btn-sm mb-3">Buy Now</a>
+<a th:href="@{/buyNow(productID=${tempProduct.id})}" class="btn btn-primary btn-sm mb-3">Buy Now</a>
 ```
 
 G.  Modify the parts to track maximum and minimum inventory by doing the following:
