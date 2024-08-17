@@ -144,6 +144,7 @@ Lines 56-57: Added a map to navigate to the about page
         return "about";
     }
 ```
+<strong>Filename: BootStrapData.java</strong>
 
 Lines 27-40: Added a new repo for inhouse parts
 ```java
@@ -163,8 +164,151 @@ public class BootStrapData implements CommandLineRunner {
     }
 }
 ```
+Lines 35-176: Created 5 parts, 2 Inhouse, and 3 Outsourced
 
+```java
+   @Override
+public void run(String... args) throws Exception {
+    List<InhousePart> inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
 
+    InhousePart part1 = new InhousePart();
+    part1.setId(1);
+    part1.setName("Shooter Tips");
+    part1.setInv(10);
+    part1.setMin(1);
+    part1.setMax(50);
+    part1.setPrice(50.0);
+    inhousePartRepository.save(part1);
+    inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
+    InhousePart thePart = null;
+    for (InhousePart part : inhouseParts) {
+        if (part.getName().equals("Shooter Tip")) {
+            thePart = part;
+            break;
+        }
+    }
+
+    if (thePart != null) {
+        System.out.println(thePart.getName());
+    } else {
+        System.out.println("Part not found");
+    }
+
+    InhousePart part2 = new InhousePart();
+    part2.setId(2);
+    part2.setName("Washing Hose");
+    part2.setInv(20);
+    part2.setMin(1);
+    part2.setMax(50);
+    part2.setPrice(30.0);
+    inhousePartRepository.save(part2);
+    inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
+    thePart = null;
+    for (InhousePart part : inhouseParts) {
+        if (part.getName().equals("Washing Hose")) {
+            thePart = part;
+            break;
+        }
+    }
+
+    if (thePart != null) {
+        System.out.println(thePart.getName());
+    } else {
+        System.out.println("Part not found");
+    }
+
+    inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
+    for (InhousePart part : inhouseParts) {
+        System.out.println(part.getName() + " " + part.getId());
+    }
+
+    List<OutsourcedPart> outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+
+    OutsourcedPart part3 = new OutsourcedPart();
+    part3.setCompanyName("Amazon");
+    part3.setId(3);
+    part3.setName("Surface Cleaner");
+    part3.setInv(5);
+    part3.setMin(1);
+    part3.setMax(50);
+    part3.setPrice(100.0);
+    outsourcedPartRepository.save(part3);
+    //Update list after saving the new part
+    outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+    OutsourcedPart theOutPart = null;
+    for (OutsourcedPart part : outsourcedParts) {
+        if (part.getName().equals("Surface Cleaner")) {
+            theOutPart = part;
+            break;
+        }
+    }
+
+    if (theOutPart != null) {
+        System.out.println(theOutPart.getName());
+    } else {
+        System.out.println("Part not found");
+    }
+
+    OutsourcedPart part4 = new OutsourcedPart();
+    part4.setCompanyName("Lowes");
+    part4.setId(4);
+    part4.setName("Wonder Wand");
+    part4.setInv(25);
+    part4.setMin(1);
+    part4.setMax(50);
+    part4.setPrice(50.0);
+    outsourcedPartRepository.save(part4);
+    //Update list after saving the new part
+    outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+    theOutPart = null;
+    for (OutsourcedPart part : outsourcedParts) {
+        if (part.getName().equals("Wonder Wand")) {
+            theOutPart = part;
+            break;
+        }
+    }
+
+    if (theOutPart != null) {
+        System.out.println(theOutPart.getName());
+    } else {
+        System.out.println("Part not found");
+    }
+
+    OutsourcedPart part5 = new OutsourcedPart();
+    part5.setCompanyName("Home Depot");
+    part5.setId(5);
+    part5.setName("Pressure Valve");
+    part5.setInv(20);
+    part5.setMin(1);
+    part5.setMax(50);
+    part5.setPrice(15.0);
+    outsourcedPartRepository.save(part5);
+    outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+    theOutPart = null;
+    for (OutsourcedPart part : outsourcedParts) {
+        if (part.getName().equals("Pressure Valve")) {
+            theOutPart = part;
+            break;
+        }
+    }
+
+    if (theOutPart != null) {
+        System.out.println(thePart.getName());
+    } else {
+        System.out.println("Part not found");
+    }
+
+        /*inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
+        for (InhousePart part : inhouseParts) {
+            System.out.println(part.getName() + " " + part.getId());
+        }*/
+
+        /*List<OutsourcedPart> outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+        for (OutsourcedPart part : outsourcedParts) {
+            System.out.println(part.getName() + " " + part.getCompanyName());
+        }*/
+}
+ ```
 E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.
 Note: Make sure the sample inventory is added only when both the part and product lists are empty. When adding the sample inventory appropriate for the store, the inventory is stored in a set so duplicate items cannot be added to your products. When duplicate items are added, make a “multi-pack” part.
 

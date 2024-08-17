@@ -2,21 +2,14 @@ package com.example.demo.bootstrap;
 
 import com.example.demo.domain.InhousePart;
 import com.example.demo.domain.OutsourcedPart;
-import com.example.demo.domain.Part;
-import com.example.demo.domain.Product;
 import com.example.demo.repositories.InhousePartRepository;
 import com.example.demo.repositories.OutsourcedPartRepository;
 import com.example.demo.repositories.PartRepository;
 import com.example.demo.repositories.ProductRepository;
-import com.example.demo.service.OutsourcedPartService;
-import com.example.demo.service.OutsourcedPartServiceImpl;
-import com.example.demo.service.ProductService;
-import com.example.demo.service.ProductServiceImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  *
@@ -45,7 +38,7 @@ public class BootStrapData implements CommandLineRunner {
 
         InhousePart part1 = new InhousePart();
         part1.setId(1);
-        part1.setName("Shooter Tip");
+        part1.setName("Shooter Tips");
         part1.setInv(10);
         part1.setMin(1);
         part1.setMax(50);
@@ -89,6 +82,11 @@ public class BootStrapData implements CommandLineRunner {
             System.out.println("Part not found");
         }
 
+        inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
+        for (InhousePart part : inhouseParts) {
+            System.out.println(part.getName() + " " + part.getId());
+        }
+
         List<OutsourcedPart> outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
 
         OutsourcedPart part3 = new OutsourcedPart();
@@ -98,7 +96,7 @@ public class BootStrapData implements CommandLineRunner {
         part3.setInv(5);
         part3.setMin(1);
         part3.setMax(50);
-        part3.setPrice(200.0);
+        part3.setPrice(100.0);
         outsourcedPartRepository.save(part3);
         //Update list after saving the new part
         outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
@@ -116,14 +114,14 @@ public class BootStrapData implements CommandLineRunner {
             System.out.println("Part not found");
         }
 
-        /*OutsourcedPart part4 = new OutsourcedPart();
+        OutsourcedPart part4 = new OutsourcedPart();
         part4.setCompanyName("Lowes");
         part4.setId(4);
         part4.setName("Wonder Wand");
         part4.setInv(25);
         part4.setMin(1);
         part4.setMax(50);
-        part4.setPrice(40.0);
+        part4.setPrice(50.0);
         outsourcedPartRepository.save(part4);
         //Update list after saving the new part
         outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
@@ -139,7 +137,31 @@ public class BootStrapData implements CommandLineRunner {
             System.out.println(theOutPart.getName());
         } else {
             System.out.println("Part not found");
-        }*/
+        }
+
+        OutsourcedPart part5 = new OutsourcedPart();
+        part5.setCompanyName("Home Depot");
+        part5.setId(5);
+        part5.setName("Pressure Valve");
+        part5.setInv(20);
+        part5.setMin(1);
+        part5.setMax(50);
+        part5.setPrice(15.0);
+        outsourcedPartRepository.save(part5);
+        outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+        theOutPart = null;
+        for (OutsourcedPart part : outsourcedParts) {
+            if (part.getName().equals("Pressure Valve")) {
+                theOutPart = part;
+                break;
+            }
+        }
+
+        if (theOutPart != null) {
+            System.out.println(thePart.getName());
+        } else {
+            System.out.println("Part not found");
+        }
 
         /*inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
         for (InhousePart part : inhouseParts) {
