@@ -336,6 +336,36 @@ Line 82: Added a Buy Now Button in the product list
 <a th:href="@{/buyNow(productID=${tempProduct.id})}" class="btn btn-primary btn-sm mb-3">Buy Now</a>
 ```
 
+<strong>NEW Filename: BuyingProductController.java</strong>
+Lines 1-54: Added BuyingProductController to handle the Buy Now button in the mainscreen.html
+```java
+@Controller
+public class BuyingProductController {
+    @Autowired
+    private ProductRepository productRepository;
+
+    @GetMapping("/buyingProduct")
+    public String buyingProduct(@RequestParam("productId") Long productId, Model theModel) {
+
+        Optional<Product> buyingProduct = productRepository.findById(productId);
+
+        if (buyingProduct.isPresent()) {
+            Product product = buyingProduct.get();
+            theModel.addAttribute("product", product);
+            if (product.getInv() > 0) {
+                product.setInv(product.getInv() - 1);
+                productRepository.save(product);
+                return "/buyingSuccess";
+            } else {
+                return "/buyingFail";
+            }
+        } else {
+            return "/buyingFail";
+        }
+    }
+}
+```
+
 G.  Modify the parts to track maximum and minimum inventory by doing the following:
 •  Add additional fields to the part entity for maximum and minimum inventory.
 •  Modify the sample inventory to include the maximum and minimum fields.

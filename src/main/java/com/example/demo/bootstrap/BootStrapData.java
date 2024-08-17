@@ -164,18 +164,17 @@ public class BootStrapData implements CommandLineRunner {
             System.out.println("Part not found");
         }
 
-        Product two_gpm_washer= new Product("2 GPM Washer",100.00,10);
-        Product three_gpm_washer= new Product("3 GPM Washer",200.00,10);
-        Product four_gpm_washer= new Product("4 GPM Washer",300.00,8);
-        Product five_gpm_washer= new Product("5 GPM Washer",600.00,5);
-        Product six_gpm_washer= new Product("6 GPM Washer",1000.00,3);
+        //Product two_gpm_washer= new Product("2 GPM Washer",100.00,10);
+        //Product three_gpm_washer= new Product("3 GPM Washer",200.00,10);
+        //Product four_gpm_washer= new Product("4 GPM Washer",300.00,8);
+        //Product five_gpm_washer= new Product("5 GPM Washer",600.00,5);
+        //Product six_gpm_washer= new Product("6 GPM Washer",1000.00,3);
 
-        productRepository.save(two_gpm_washer);
-        productRepository.save(three_gpm_washer);
-        productRepository.save(four_gpm_washer);
-        productRepository.save(five_gpm_washer);
-        productRepository.save(six_gpm_washer);
-
+        //productRepository.save(two_gpm_washer);
+        //productRepository.save(three_gpm_washer);
+        //productRepository.save(four_gpm_washer);
+        //productRepository.save(five_gpm_washer);
+        //productRepository.save(six_gpm_washer);
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Products"+productRepository.count());
