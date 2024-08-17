@@ -36,47 +36,119 @@ public class BootStrapData implements CommandLineRunner {
         this.partRepository = partRepository;
         this.productRepository = productRepository;
         this.inhousePartRepository = inhousePartRepository;
-        this.outsourcedPartRepository=outsourcedPartRepository;
+        this.outsourcedPartRepository = outsourcedPartRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
+        List<InhousePart> inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
 
-
-       InhousePart part1= new InhousePart();
-        part1.setId(100);
-        part1.setName("Jrod Supply");
+        InhousePart part1 = new InhousePart();
+        part1.setId(1);
+        part1.setName("Shooter Tip");
         part1.setInv(10);
         part1.setMin(1);
         part1.setMax(50);
         part1.setPrice(50.0);
-        part1.setId(1);
         inhousePartRepository.save(part1);
-        InhousePart thePart=null;
-        List<InhousePart> inhouseParts=(List<InhousePart>) inhousePartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
-            if(part.getName().equals("JRod Supply"))thePart=part;
+        inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
+        InhousePart thePart = null;
+        for (InhousePart part : inhouseParts) {
+            if (part.getName().equals("Shooter Tip")) {
+                thePart = part;
+                break;
+            }
         }
 
-        System.out.println(thePart.getName());
-
-        List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
-            System.out.println(part.getName()+" "+part.getCompanyName());
+        if (thePart != null) {
+            System.out.println(thePart.getName());
+        } else {
+            System.out.println("Part not found");
         }
 
-        /*
-        Product bicycle= new Product("bicycle",100.0,15);
-        Product unicycle= new Product("unicycle",100.0,15);
-        productRepository.save(bicycle);
-        productRepository.save(unicycle);
-        */
+        InhousePart part2 = new InhousePart();
+        part2.setId(2);
+        part2.setName("Washing Hose");
+        part2.setInv(20);
+        part2.setMin(1);
+        part2.setMax(50);
+        part2.setPrice(30.0);
+        inhousePartRepository.save(part2);
+        inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
+        thePart = null;
+        for (InhousePart part : inhouseParts) {
+            if (part.getName().equals("Washing Hose")) {
+                thePart = part;
+                break;
+            }
+        }
 
-        System.out.println("Started in Bootstrap");
-        System.out.println("Number of Products"+productRepository.count());
-        System.out.println(productRepository.findAll());
-        System.out.println("Number of Parts"+partRepository.count());
-        System.out.println(partRepository.findAll());
+        if (thePart != null) {
+            System.out.println(thePart.getName());
+        } else {
+            System.out.println("Part not found");
+        }
 
+        List<OutsourcedPart> outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+
+        OutsourcedPart part3 = new OutsourcedPart();
+        part3.setCompanyName("Amazon");
+        part3.setId(3);
+        part3.setName("Surface Cleaner");
+        part3.setInv(5);
+        part3.setMin(1);
+        part3.setMax(50);
+        part3.setPrice(200.0);
+        outsourcedPartRepository.save(part3);
+        //Update list after saving the new part
+        outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+        OutsourcedPart theOutPart = null;
+        for (OutsourcedPart part : outsourcedParts) {
+            if (part.getName().equals("Surface Cleaner")) {
+                theOutPart = part;
+                break;
+            }
+        }
+
+        if (theOutPart != null) {
+            System.out.println(theOutPart.getName());
+        } else {
+            System.out.println("Part not found");
+        }
+
+        /*OutsourcedPart part4 = new OutsourcedPart();
+        part4.setCompanyName("Lowes");
+        part4.setId(4);
+        part4.setName("Wonder Wand");
+        part4.setInv(25);
+        part4.setMin(1);
+        part4.setMax(50);
+        part4.setPrice(40.0);
+        outsourcedPartRepository.save(part4);
+        //Update list after saving the new part
+        outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+        theOutPart = null;
+        for (OutsourcedPart part : outsourcedParts) {
+            if (part.getName().equals("Wonder Wand")) {
+                theOutPart = part;
+                break;
+            }
+        }
+
+        if (theOutPart != null) {
+            System.out.println(theOutPart.getName());
+        } else {
+            System.out.println("Part not found");
+        }*/
+
+        /*inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
+        for (InhousePart part : inhouseParts) {
+            System.out.println(part.getName() + " " + part.getId());
+        }*/
+
+        /*List<OutsourcedPart> outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+        for (OutsourcedPart part : outsourcedParts) {
+            System.out.println(part.getName() + " " + part.getCompanyName());
+        }*/
     }
 }
