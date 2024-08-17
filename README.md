@@ -164,7 +164,7 @@ public class BootStrapData implements CommandLineRunner {
     }
 }
 ```
-Lines 35-176: Created 5 parts, 2 Inhouse, and 3 Outsourced
+Lines 35-159: Created 5 parts, 2 Inhouse, and 3 Outsourced
 
 ```java
    @Override
@@ -309,6 +309,27 @@ public void run(String... args) throws Exception {
         }*/
 }
  ```
+Lines 167-184: Added in 5 Products 
+```java
+ Product two_gpm_washer= new Product("2 GPM Washer",100.00,10);
+        Product three_gpm_washer= new Product("3 GPM Washer",200.00,10);
+        Product four_gpm_washer= new Product("4 GPM Washer",300.00,8);
+        Product five_gpm_washer= new Product("5 GPM Washer",600.00,5);
+        Product six_gpm_washer= new Product("6 GPM Washer",1000.00,3);
+
+        productRepository.save(two_gpm_washer);
+        productRepository.save(three_gpm_washer);
+        productRepository.save(four_gpm_washer);
+        productRepository.save(five_gpm_washer);
+        productRepository.save(six_gpm_washer);
+
+
+        System.out.println("Started in Bootstrap");
+        System.out.println("Number of Products"+productRepository.count());
+        System.out.println(productRepository.findAll());
+        System.out.println("Number of Parts"+partRepository.count());
+        System.out.println(partRepository.findAll());
+```
 E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.
 Note: Make sure the sample inventory is added only when both the part and product lists are empty. When adding the sample inventory appropriate for the store, the inventory is stored in a set so duplicate items cannot be added to your products. When duplicate items are added, make a “multi-pack” part.
 
