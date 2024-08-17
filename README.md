@@ -329,6 +329,12 @@ F.  Add a “Buy Now” button to your product list. Your “Buy Now” button m
 •  The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.
 •  Display a message that indicates the success or failure of a purchase.
 
+<strong>Filename: mainscreen.html</strong>
+
+Line 46: Added a Buy Now Button
+```html
+<a th:href="@{/buyNow(partID=${tempPart.id})}" class="btn btn-primary btn-sm mb-3">Buy Now</a>
+```
 
 G.  Modify the parts to track maximum and minimum inventory by doing the following:
 •  Add additional fields to the part entity for maximum and minimum inventory.
