@@ -124,6 +124,11 @@ Lines 1-54: Added About.html page with layout and content
 
 </style>
 ```
+Line 19: Updated about.html to include link back to main screen
+```html
+<a href="mainscreen">Back to Main Screen</a>
+```
+
 <strong>Filename: mainscreen.html</strong>
 
 Line 17: Added a link to the about page
