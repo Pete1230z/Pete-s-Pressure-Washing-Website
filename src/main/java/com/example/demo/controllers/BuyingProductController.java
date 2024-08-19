@@ -18,9 +18,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.validation.Valid;
-import java.util.Optional;
 
+import java.util.Optional;
 /**
  *
  *
@@ -34,21 +33,19 @@ public class BuyingProductController {
 
     @GetMapping("/buyingProduct")
     public String buyingProduct(@RequestParam("productId") Long productId, Model theModel) {
-
         Optional<Product> buyingProduct = productRepository.findById(productId);
 
         if (buyingProduct.isPresent()) {
             Product product = buyingProduct.get();
-            theModel.addAttribute("product", product);
             if (product.getInv() > 0) {
                 product.setInv(product.getInv() - 1);
                 productRepository.save(product);
-                return "/buyingSuccess";
+                return "buyingSuccess";
             } else {
-                return "/buyingFail";
+                return "buyingFail";
             }
         } else {
-            return "/buyingFail";
+            return "buyingFail";
         }
     }
 }
