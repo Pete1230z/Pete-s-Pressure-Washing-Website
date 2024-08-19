@@ -342,6 +342,7 @@ Line 82: Added a Buy Now Button in the product list
 ```
 
 <strong>NEW Filename: BuyingProductController.java</strong>
+
 Lines 1-54: Added BuyingProductController to handle the Buy Now button in the mainscreen.html
 ```java
 @Controller
@@ -399,6 +400,21 @@ public class BuyingProductController {
 }
 ```
 
+<strong>NEW Filename: buyingSuccess.html</strong>
+Lines 1-11: Added a buyingSuccess.html file to output a statement if purchase is successful.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>buyingSuccess</title>
+</head>
+<body>
+<a id="mainscreen" class="btn btn-primary mainscreen" href="mainscreen">Back to Mainscreen</a>
+<p>Your purchase was successful! We thank you for your purchase and hope to see you again soon.</p>
+</body>
+</html>
+```
 G.  Modify the parts to track maximum and minimum inventory by doing the following:
 •  Add additional fields to the part entity for maximum and minimum inventory.
 •  Modify the sample inventory to include the maximum and minimum fields.
