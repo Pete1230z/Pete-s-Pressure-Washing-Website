@@ -415,6 +415,23 @@ Lines 1-11: Added a buyingSuccess.html file to output a statement if purchase is
 </body>
 </html>
 ```
+
+<strong>NEW Filename: buyingFail.html</strong>
+
+Lines 1-11: Added a buyingFail.html file to output a statement if purchase is a failure.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>buyingFail</title>
+</head>
+<body>
+<a id="mainscreen" class="btn btn-primary mainscreen" href="mainscreen">Back to Mainscreen</a>
+<p>Your purchase did not succeed. Please ensure the product is not in stock and contact us if needed!</p>
+</body>
+</html>
+```
 G.  Modify the parts to track maximum and minimum inventory by doing the following:
 •  Add additional fields to the part entity for maximum and minimum inventory.
 •  Modify the sample inventory to include the maximum and minimum fields.
