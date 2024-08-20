@@ -468,6 +468,17 @@ public Part(String name, double price, int inv, int valMin, int valMax) {
         this.valMax = valMax;
     }
 ```
+
+Lines 94-100: Created a new getter and setter for both valMin and valMax.
+```java
+   public int getMin() { return valMin; }
+
+    public void setMin(int valMin) { this.valMin = valMin; }
+
+    public int getMax() { return valMax; }
+
+    public void setMax(int valMax) { this.valMax = valMax; }
+```
 H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
 •  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
 •  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
