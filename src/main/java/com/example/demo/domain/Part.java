@@ -31,7 +31,7 @@ public abstract class Part implements Serializable {
     int inv;
     @Min(value = 0, message = "Inventory must be positive")
     int valMin;
-    @Max(value = 50, message = "Inventory must be less than 50")
+    @Max(value = 100, message = "Inventory must be less than 50")
     int valMax;
 
     @ManyToMany
@@ -47,16 +47,16 @@ public abstract class Part implements Serializable {
         this.price = price;
         this.inv = inv;
         this.valMin = 0;
-        this.valMax = 0;
+        this.valMax = 100;
     }
 
-    public Part(long id, String name, double price, int inv, int setMin, int setMax) {
+    public Part(long id, String name, double price, int inv, int valMin, int valMax) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.inv = inv;
-        this.valMin = setMin;
-        this.valMax = setMax;
+        this.valMin = valMin;
+        this.valMax = valMax;
     }
 
     public long getId() {
