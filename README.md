@@ -449,6 +449,25 @@ Lines 32-35: Added a min and max for valMin and valMax respectively.
     int valMax;
 ```
 
+Lines 45-60: Added valMin and valMax to two constructors and set initial values.
+```java
+public Part(String name, double price, int inv, int valMin, int valMax) {
+        this.name = name;
+        this.price = price;
+        this.inv = inv;
+        this.valMin = 0;
+        this.valMax = 100;
+    }
+
+    public Part(long id, String name, double price, int inv, int valMin, int valMax) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.inv = inv;
+        this.valMin = valMin;
+        this.valMax = valMax;
+    }
+```
 H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
 •  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
 •  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
