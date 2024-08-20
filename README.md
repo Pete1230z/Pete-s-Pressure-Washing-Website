@@ -493,9 +493,9 @@ Lines 44-45, 67-68, 98-99, 123-124, 148, 149: Set, setmin = 1 and setMax = 100 f
 Lines 17-20: Added valMin and valMax values.
 ```java
 public InhousePart() {
-        this.valMin = 0;
-        this.valMin = 100;
-    }
+    this.valMin = 0;
+    this.valMax = 100;
+}
 ```
 
 <strong>Filename: OutsourcedPart.java</strong>
