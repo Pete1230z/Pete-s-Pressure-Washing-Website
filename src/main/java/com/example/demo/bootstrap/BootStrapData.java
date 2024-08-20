@@ -42,7 +42,7 @@ public class BootStrapData implements CommandLineRunner {
         part1.setName("Shooter Tips");
         part1.setInv(10);
         part1.setMin(1);
-        part1.setMax(50);
+        part1.setMax(100);
         part1.setPrice(50.0);
         inhousePartRepository.save(part1);
         inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
@@ -65,7 +65,7 @@ public class BootStrapData implements CommandLineRunner {
         part2.setName("Washing Hose");
         part2.setInv(20);
         part2.setMin(1);
-        part2.setMax(50);
+        part2.setMax(100);
         part2.setPrice(30.0);
         inhousePartRepository.save(part2);
         inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
@@ -96,7 +96,7 @@ public class BootStrapData implements CommandLineRunner {
         part3.setName("Surface Cleaner");
         part3.setInv(5);
         part3.setMin(1);
-        part3.setMax(50);
+        part3.setMax(100);
         part3.setPrice(100.0);
         outsourcedPartRepository.save(part3);
         //Update list after saving the new part
@@ -121,7 +121,7 @@ public class BootStrapData implements CommandLineRunner {
         part4.setName("Wonder Wand");
         part4.setInv(25);
         part4.setMin(1);
-        part4.setMax(50);
+        part4.setMax(100);
         part4.setPrice(50.0);
         outsourcedPartRepository.save(part4);
         //Update list after saving the new part
@@ -146,7 +146,7 @@ public class BootStrapData implements CommandLineRunner {
         part5.setName("Pressure Valve");
         part5.setInv(20);
         part5.setMin(1);
-        part5.setMax(50);
+        part5.setMax(100);
         part5.setPrice(15.0);
         outsourcedPartRepository.save(part5);
         outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
