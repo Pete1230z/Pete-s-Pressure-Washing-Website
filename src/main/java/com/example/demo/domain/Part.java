@@ -93,11 +93,11 @@ public abstract class Part implements Serializable {
 
     public int getMin() { return valMin; }
 
-    public void setMin(int ) { this.valMin = ; }
+    //public void setMin(int ) { this.valMin = ; }
 
     public int getMax() { return valMax; }
 
-    public void setMax(int ) { this.valMax = ; }
+    //public void setMax(int ) { this.valMax = ; }
 
     public Set<Product> getProducts() {
         return products;
