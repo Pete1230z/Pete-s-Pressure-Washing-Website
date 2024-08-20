@@ -497,6 +497,17 @@ public InhousePart() {
         this.valMin = 100;
     }
 ```
+
+<strong>Filename: OutsourcedPart.java</strong>
+
+Lines 18-21: Added valMin and valMax values.
+```java
+    public OutsourcedPart() {
+        this.valMin = 0;
+        this.valMax = 100;
+    }
+```
+
 H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
 •  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
 •  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
