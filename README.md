@@ -439,6 +439,13 @@ G.  Modify the parts to track maximum and minimum inventory by doing the followi
 •  Rename the file the persistent storage is saved to.
 •  Modify the code to enforce that the inventory is between or at the minimum and maximum value.
 
+<strong> Filename: part.java</strong>
+```java
+ @Min(value = 0, message = "Inventory must be positive")
+    int valMin;
+    @Max(value = 50, message = "Inventory must be less than 50")
+    int valMax;
+```
 
 H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
 •  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.

@@ -30,9 +30,9 @@ public abstract class Part implements Serializable {
     @Min(value = 0, message = "Inventory value must be positive")
     int inv;
     @Min(value = 0, message = "Inventory must be positive")
-    int setMin;
+    int valMin;
     @Max(value = 50, message = "Inventory must be less than 50")
-    int setMax;
+    int valMax;
 
     @ManyToMany
     @JoinTable(name="product_part", joinColumns = @JoinColumn(name="part_id"),
@@ -42,20 +42,21 @@ public abstract class Part implements Serializable {
     public Part() {
     }
 
-    public Part(String name, double price, int inv, int setMin, int setMax) {
+    public Part(String name, double price, int inv, int valMin, int valMax) {
         this.name = name;
         this.price = price;
         this.inv = inv;
-        this.setMin = setMin;
-        this.setMax = setMax;
+        this.valMin = 0;
+        this.valMax = 0;
     }
 
-    public Part(long id, String name, double price, int inv, int setMin) {
+    public Part(long id, String name, double price, int inv, int setMin, int setMax) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.inv = inv;
-        this.setMin = setMin;
+        this.valMin = setMin;
+        this.valMax = setMax;
     }
 
     public long getId() {
@@ -90,13 +91,13 @@ public abstract class Part implements Serializable {
         this.inv = inv;
     }
 
-    public int getMin() { return setMin; }
+    public int getMin() { return valMin; }
 
-    public void setMin(int setMin) { this.setMin = setMin; }
+    public void setMin(int setMin) { this.valMin = setMin; }
 
-    public int getMax() { return setMax; }
+    public int getMax() { return valMax; }
 
-    public void setMax(int setMax) { this.setMax = setMax; }
+    public void setMax(int setMax) { this.valMax = setMax; }
 
     public Set<Product> getProducts() {
         return products;
