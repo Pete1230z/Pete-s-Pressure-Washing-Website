@@ -123,6 +123,14 @@ public abstract class Part implements Serializable {
         return id == part.id;
     }
 
+    public void limits() {
+        if (this.inv < this.minInv) {
+            throw new RuntimeException("Inventory is below minimum");
+        } else if (this.inv > this.maxInv) {
+            throw new RuntimeException("Inventory is above maximum");
+        }
+    }
+
     @Override
     public int hashCode() {
         return (int) (id ^ (id >>> 32));

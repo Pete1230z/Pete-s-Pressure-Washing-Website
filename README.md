@@ -484,6 +484,17 @@ public int getMaxInv() {
 public void setMax(int maxInv) { this.maxInv = maxInv; }
 ```
 
+Lines 126-132: Created a method to check if inv is below or above the min and max.
+```java
+    public void limits() {
+    if (this.inv < this.minInv) {
+        throw new RuntimeException("Inventory is below minimum");
+    } else if (this.inv > this.maxInv) {
+        throw new RuntimeException("Inventory is above maximum");
+    }
+}
+```
+
 <strong>Filename: BootStrapData.java.java</strong>
 
 Lines 44-45, 67-68, 98-99, 123-124, 148, 149: Set, setmin = 1 and setMax = 100 for all parts.
