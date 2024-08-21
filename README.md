@@ -523,6 +523,17 @@ Lines 25-29 added fields for the user to input min and max values.
 <p th:if="${#fields.hasErrors('valMax')}" th:errors="*{maxInv}">Maximum Inventory Error</p>
 ```
 
+<strong>Filename: OutsourcedPartForm.html</strong>
+
+Lines 25-29 added fields for the user to input min and max values.
+```html
+<p><input type="text" th:field="*{minInv}" placeholder="Minimum Inventory" class="form-control mb-4 col-4"/></p>
+<p th:if="${#fields.hasErrors('minInv')}" th:errors="*{minInv}">Minimum Inventory Error</p>
+
+<p><input type="text" th:field="*{maxInv}" placeholder="Maximum Inventory" class="form-control mb-4 col-4"/></p>
+<p th:if="${#fields.hasErrors('maxInv')}" th:errors="*{maxInv}">Maximum Inventory Error</p>
+```
+
 H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
 •  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
 •  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
