@@ -469,7 +469,7 @@ public Part(long id, String name, double price, int inv, int minInv, int maxInv)
 }
 ```
 
-Lines 101-111: Created a new getter and setter for both valMin and valMax.
+Lines 101-111: Created a new getter and setter for both minInv and maxInv.
 ```java
  public int getMinInv() {
     return minInv;
@@ -504,12 +504,12 @@ public InhousePart() {
 
 <strong>Filename: OutsourcedPart.java</strong>
 
-Lines 18-21: Added valMin and valMax values.
+Lines 18-21: Added minInv and maxInv values.
 ```java
     public OutsourcedPart() {
-        this.valMin = 0;
-        this.valMax = 100;
-    }
+    this.minInv = 0;
+    this.maxInv = 100;
+}
 ```
 
 H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:

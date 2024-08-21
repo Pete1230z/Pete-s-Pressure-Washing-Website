@@ -16,8 +16,8 @@ String companyName;
 
 
     public OutsourcedPart() {
-        this.valMin = 0;
-        this.valMax = 100;
+        this.minInv = 0;
+        this.maxInv = 100;
     }
 
     public String getCompanyName() {
