@@ -576,6 +576,17 @@ Lines 52-57: Added limits method check prior to partRepository.save.
     }
 ```
 
+<strong>Filename: OutsourcedPartServiceImpl.java</strong>
+
+Lines 50-55: Added limits method check prior to partRepository.save.
+```java
+@Override 
+  public void save(OutsourcedPart thePart) {
+    thePart.limits();
+    partRepository.save(thePart);
+
+}
+```
 H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
 •  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
 •  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
