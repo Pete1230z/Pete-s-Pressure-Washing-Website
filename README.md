@@ -469,15 +469,19 @@ public Part(long id, String name, double price, int inv, int minInv, int maxInv)
 }
 ```
 
-Lines 94-100: Created a new getter and setter for both valMin and valMax.
+Lines 101-111: Created a new getter and setter for both valMin and valMax.
 ```java
-   public int getMin() { return valMin; }
+ public int getMinInv() {
+    return minInv;
+}
 
-    public void setMin(int valMin) { this.valMin = valMin; }
+public void setMin(int minInv) { this.minInv = minInv; }
 
-    public int getMax() { return valMax; }
+public int getMaxInv() {
+    return maxInv;
+}
 
-    public void setMax(int valMax) { this.valMax = valMax; }
+public void setMax(int maxInv) { this.maxInv = maxInv; }
 ```
 
 <strong>Filename: BootStrapData.java.java</strong>

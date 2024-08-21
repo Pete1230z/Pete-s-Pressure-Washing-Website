@@ -17,7 +17,7 @@ import java.util.Set;
 @ValidDeletePart
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="part_type",discriminatorType = DiscriminatorType.INTEGER)
-
+//
 @Table(name="Parts")
 public abstract class Part implements Serializable {
     @Id
@@ -102,9 +102,7 @@ public abstract class Part implements Serializable {
         return minInv;
     }
 
-    public void setMin(int minInv) {
-        this.minInv = minInv;
-    }
+    public void setMin(int minInv) { this.minInv = minInv; }
 
     public int getMaxInv() {
         return maxInv;
