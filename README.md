@@ -494,7 +494,7 @@ Lines 44-45, 67-68, 98-99, 123-124, 148, 149: Set, setmin = 1 and setMax = 100 f
 
 <strong>Filename: InhousePart.java</strong>
 
-Lines 17-20: Added valMin and valMax values.
+Lines 17-20: Added minInv and maxInv values.
 ```java
 public InhousePart() {
     this.valMin = 0;
