@@ -1,10 +1,8 @@
 package com.example.demo.domain;
-
 import com.example.demo.validators.ValidDeletePart;
-
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Max;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,6 +17,7 @@ import java.util.Set;
 @ValidDeletePart
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="part_type",discriminatorType = DiscriminatorType.INTEGER)
+
 @Table(name="Parts")
 public abstract class Part implements Serializable {
     @Id
@@ -29,10 +28,10 @@ public abstract class Part implements Serializable {
     double price;
     @Min(value = 0, message = "Inventory value must be positive")
     int inv;
-    @Min(value = 0, message = "Inventory must be positive")
-    int valMin;
-    @Max(value = 100, message = "Inventory must be less than 50")
-    int valMax;
+    @Min(value = 0, message = "Minimum inventory value must be positive")
+    int minInv;
+    @Max(value = 100, message = "Maximum inventory value must fall within set maximum")
+    int maxInv;
 
     @ManyToMany
     @JoinTable(name="product_part", joinColumns = @JoinColumn(name="part_id"),
@@ -42,21 +41,21 @@ public abstract class Part implements Serializable {
     public Part() {
     }
 
-    public Part(String name, double price, int inv, int valMin, int valMax) {
+    public Part(String name, double price, int inv) {
         this.name = name;
         this.price = price;
         this.inv = inv;
-        this.valMin = 0;
-        this.valMax = 100;
+        this.minInv = 0;
+        this.maxInv = 100;
     }
 
-    public Part(long id, String name, double price, int inv, int valMin, int valMax) {
+    public Part(long id, String name, double price, int inv, int minInv, int maxInv) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.inv = inv;
-        this.valMin = valMin;
-        this.valMax = valMax;
+        this.minInv = minInv;
+        this.maxInv = maxInv;
     }
 
     public long getId() {
@@ -91,14 +90,6 @@ public abstract class Part implements Serializable {
         this.inv = inv;
     }
 
-    public int getMin() { return valMin; }
-
-    public void setMin(int valMin) { this.valMin = valMin; }
-
-    public int getMax() { return valMax; }
-
-    public void setMax(int valMax) { this.valMax = valMax; }
-
     public Set<Product> getProducts() {
         return products;
     }
@@ -106,6 +97,20 @@ public abstract class Part implements Serializable {
     public void setProducts(Set<Product> products) {
         this.products = products;
     }
+
+    public int getMinInv() {
+        return minInv;
+    }
+
+    public void setMinInv(int minInv) {
+        this.minInv = minInv;
+    }
+
+    public int getMaxInv() {
+        return maxInv;
+    }
+
+    public void setMaxInv(int maxInv) { this.maxInv = maxInv; }
 
     public String toString(){
         return this.name;

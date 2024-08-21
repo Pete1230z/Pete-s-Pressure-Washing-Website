@@ -441,12 +441,12 @@ G.  Modify the parts to track maximum and minimum inventory by doing the followi
 
 <strong> Filename: part.java</strong>
 
-Lines 32-35: Added a min and max for valMin and valMax respectively.
+Lines 31-34: Added a min and max for valMin and valMax respectively.
 ```java
- @Min(value = 0, message = "Inventory must be positive")
-    int valMin;
-    @Max(value = 100, message = "Inventory must be less than 50")
-    int valMax;
+ @Min(value = 0, message = "Minimum inventory value must be positive")
+int minInv;
+@Max(value = 100, message = "Maximum inventory value must fall within set maximum")
+int maxInv;
 ```
 
 Lines 45-60: Added valMin and valMax to two constructors and set initial values.
