@@ -534,6 +534,13 @@ Lines 25-29 added fields for the user to input min and max values.
 <p th:if="${#fields.hasErrors('maxInv')}" th:errors="*{maxInv}">Maximum Inventory Error</p>
 ```
 
+<strong>Filename: application.properties</strong>
+
+Lines 6 chagned location of data file to petes-pressure-washing-db.
+```html
+spring.datasource.url=jdbc:h2:file:~/petes-pressure-washing-db
+```
+
 H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
 •  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
 •  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
