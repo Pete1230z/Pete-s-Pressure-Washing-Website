@@ -102,7 +102,7 @@ public abstract class Part implements Serializable {
         return minInv;
     }
 
-    public void setMinInv(int minInv) {
+    public void setMin(int minInv) {
         this.minInv = minInv;
     }
 
@@ -110,7 +110,7 @@ public abstract class Part implements Serializable {
         return maxInv;
     }
 
-    public void setMaxInv(int maxInv) { this.maxInv = maxInv; }
+    public void setMax(int maxInv) { this.maxInv = maxInv; }
 
     public String toString(){
         return this.name;

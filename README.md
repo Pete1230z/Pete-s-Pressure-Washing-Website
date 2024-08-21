@@ -449,24 +449,24 @@ int minInv;
 int maxInv;
 ```
 
-Lines 45-60: Added valMin and valMax to two constructors and set initial values.
+Lines 44-59: Added minInv and maxInv to two constructors and set initial values.
 ```java
-public Part(String name, double price, int inv, int valMin, int valMax) {
-        this.name = name;
-        this.price = price;
-        this.inv = inv;
-        this.valMin = 0;
-        this.valMax = 100;
-    }
+ public Part(String name, double price, int inv) {
+    this.name = name;
+    this.price = price;
+    this.inv = inv;
+    this.minInv = 0;
+    this.maxInv = 100;
+}
 
-    public Part(long id, String name, double price, int inv, int valMin, int valMax) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.inv = inv;
-        this.valMin = valMin;
-        this.valMax = valMax;
-    }
+public Part(long id, String name, double price, int inv, int minInv, int maxInv) {
+    this.id = id;
+    this.name = name;
+    this.price = price;
+    this.inv = inv;
+    this.minInv = minInv;
+    this.maxInv = maxInv;
+}
 ```
 
 Lines 94-100: Created a new getter and setter for both valMin and valMax.
