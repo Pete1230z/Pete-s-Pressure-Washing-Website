@@ -125,9 +125,9 @@ public abstract class Part implements Serializable {
 
     public void limits() {
         if (this.inv < this.minInv) {
-            throw new RuntimeException("Inventory is below minimum");
+            throw new RuntimeException("Inventory is below minimum: " + this.minInv);
         } else if (this.inv > this.maxInv) {
-            throw new RuntimeException("Inventory is above maximum");
+            throw new RuntimeException("Inventory is above maximum: " + this.maxInv);
         }
     }
 

@@ -441,7 +441,7 @@ G.  Modify the parts to track maximum and minimum inventory by doing the followi
 
 <strong> Filename: part.java</strong>
 
-Lines 31-34: Added a min and max for valMin and valMax respectively.
+Lines 31-34: Added a min and max for minInv and maxInv respectively.
 ```java
  @Min(value = 0, message = "Minimum inventory value must be positive")
 int minInv;
@@ -486,11 +486,11 @@ public void setMax(int maxInv) { this.maxInv = maxInv; }
 
 Lines 126-132: Created a method to check if inv is below or above the min and max.
 ```java
-    public void limits() {
+     public void limits() {
     if (this.inv < this.minInv) {
-        throw new RuntimeException("Inventory is below minimum");
+        throw new RuntimeException("Inventory is below minimum: " + this.minInv);
     } else if (this.inv > this.maxInv) {
-        throw new RuntimeException("Inventory is above maximum");
+        throw new RuntimeException("Inventory is above maximum: " + this.maxInv);
     }
 }
 ```
