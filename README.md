@@ -592,6 +592,70 @@ H.  Add validation for between or at the maximum and minimum fields. The validat
 •  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
 •  Display error messages when adding and updating parts if the inventory is greater than the maximum.
 
+<strong>Filename: ValidMin.java</strong>
+
+Lines 1-24: Added a ValidMin validator to thrown and error message when parts drop below the minimum inventory.
+```java
+package com.example.demo.validators;
+
+import javax.validation.Constraint;
+import javax.validation.Payload;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/**
+ *
+ *
+ *
+ *
+ */
+@Constraint(validatedBy = {ValidMinValidator.class})
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface ValidMin {
+    String message() default "Inventory falls below the minimum inventory!";
+    Class<?> [] groups() default {};
+    Class<? extends Payload> [] payload() default {};
+
+}
+```
+
+<strong>Filename: ValidMinValidator.java</strong>
+
+Lines 1-29: If statement that checks if part is below minimum and passes that to ValidMin.
+```java
+package com.example.demo.validators;
+
+import com.example.demo.domain.Part;
+import com.example.demo.domain.Product;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+/**
+ *
+ *
+ *
+ *
+ */
+public class ValidMinValidator implements ConstraintValidator<ValidMin, Part> {
+    @Override
+    public void initialize(ValidMin constraintAnnotation) {
+        ConstraintValidator.super.initialize(constraintAnnotation);
+    }
+
+    @Override
+    public boolean isValid(Part part, ConstraintValidatorContext constraintValidatorContext) {
+        if (part.getInv() < part.getMinInv()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+}
+```*/
 
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
 
