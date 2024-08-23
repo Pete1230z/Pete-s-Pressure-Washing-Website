@@ -37,28 +37,31 @@ public class BootStrapData implements CommandLineRunner {
     public void run(String... args) throws Exception {
         List<InhousePart> inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
 
-        InhousePart part1 = new InhousePart();
-        part1.setId(1);
-        part1.setName("Shooter Tips");
-        part1.setInv(10);
-        part1.setMin(1);
-        part1.setMax(100);
-        part1.setPrice(50.0);
-        inhousePartRepository.save(part1);
-        inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
-        InhousePart thePart = null;
-        for (InhousePart part : inhouseParts) {
-            if (part.getName().equals("Shooter Tip")) {
-                thePart = part;
-                break;
+            //Creating an object from the InhousePart class
+            InhousePart part1 = new InhousePart();
+            part1.setId(1);
+            part1.setName("Shooter Tips");
+            part1.setInv(10);
+            part1.setMin(1);
+            part1.setMax(100);
+            part1.setPrice(50.0);
+            inhousePartRepository.save(part1);
+            inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
+            InhousePart thePart = null;
+            for (InhousePart part : inhouseParts) {
+                if (part.getName().equals("Shooter Tip")) {
+                    thePart = part;
+                    break;
+                }
             }
-        }
 
-        if (thePart != null) {
-            System.out.println(thePart.getName());
-        } else {
-            System.out.println("Part not found");
-        }
+            if (thePart != null) {
+                System.out.println(thePart.getName());
+            } else {
+                System.out.println("Part not found");
+            }
+
+
 
         InhousePart part2 = new InhousePart();
         part2.setId(2);
@@ -87,6 +90,7 @@ public class BootStrapData implements CommandLineRunner {
         for (InhousePart part : inhouseParts) {
             System.out.println(part.getName() + " " + part.getId());
         }
+
 
         List<OutsourcedPart> outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
 
@@ -164,32 +168,26 @@ public class BootStrapData implements CommandLineRunner {
             System.out.println("Part not found");
         }
 
-        Product two_gpm_washer= new Product("2 GPM Washer",100.00,10);
-        //Product three_gpm_washer= new Product("3 GPM Washer",200.00,10);
-        //Product four_gpm_washer= new Product("4 GPM Washer",300.00,8);
-        //Product five_gpm_washer= new Product("5 GPM Washer",600.00,5);
-        //Product six_gpm_washer= new Product("6 GPM Washer",1000.00,3);
+        if (productRepository.count() == 0) {
 
-        productRepository.save(two_gpm_washer);
-        //productRepository.save(three_gpm_washer);
-        //productRepository.save(four_gpm_washer);
-        //productRepository.save(five_gpm_washer);
-        //productRepository.save(six_gpm_washer);
+            Product two_gpm_washer = new Product("2 GPM Washer", 100.00, 10);
+            Product three_gpm_washer= new Product("3 GPM Washer",200.00,10);
+            Product four_gpm_washer= new Product("4 GPM Washer",300.00,8);
+            Product five_gpm_washer= new Product("5 GPM Washer",600.00,5);
+            Product six_gpm_washer= new Product("6 GPM Washer",1000.00,3);
 
-        System.out.println("Started in Bootstrap");
-        System.out.println("Number of Products"+productRepository.count());
-        System.out.println(productRepository.findAll());
-        System.out.println("Number of Parts"+partRepository.count());
-        System.out.println(partRepository.findAll());
+            productRepository.save(two_gpm_washer);
+            productRepository.save(three_gpm_washer);
+            productRepository.save(four_gpm_washer);
+            productRepository.save(five_gpm_washer);
+            productRepository.save(six_gpm_washer);
 
-        /*inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
-        for (InhousePart part : inhouseParts) {
-            System.out.println(part.getName() + " " + part.getId());
-        }*/
+            System.out.println("Started in Bootstrap");
+            System.out.println("Number of Products" + productRepository.count());
+            System.out.println(productRepository.findAll());
+            System.out.println("Number of Parts" + partRepository.count());
+            System.out.println(partRepository.findAll());
 
-        /*List<OutsourcedPart> outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for (OutsourcedPart part : outsourcedParts) {
-            System.out.println(part.getName() + " " + part.getCompanyName());
-        }*/
+        }
     }
 }
