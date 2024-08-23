@@ -657,6 +657,15 @@ public class ValidMinValidator implements ConstraintValidator<ValidMin, Part> {
 }
 ```
 
+<strong>Filename: Part.java</strong>
+
+Lines 3 and 18: imported and called validator.ValidMin.
+```java
+import com.example.demo.validators.ValidMin;
+
+@ValidMin
+```
+
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
 
 
