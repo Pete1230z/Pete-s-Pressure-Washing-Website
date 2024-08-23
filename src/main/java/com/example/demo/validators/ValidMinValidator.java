@@ -20,10 +20,10 @@ public class ValidMinValidator implements ConstraintValidator<ValidMin, Part> {
 
     @Override
     public boolean isValid(Part part, ConstraintValidatorContext constraintValidatorContext) {
-        if (part.getInv() < part.getMinInv()) {
-            return false;
-        } else {
+        if (part.getInv() > part.getMinInv()) {
             return true;
+        } else {
+            return false;
         }
     }
 }

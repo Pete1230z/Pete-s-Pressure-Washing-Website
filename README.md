@@ -648,14 +648,14 @@ public class ValidMinValidator implements ConstraintValidator<ValidMin, Part> {
 
     @Override
     public boolean isValid(Part part, ConstraintValidatorContext constraintValidatorContext) {
-        if (part.getInv() < part.getMinInv()) {
-            return false;
-        } else {
+        if (part.getInv() > part.getMinInv()) {
             return true;
+        } else {
+            return false;
         }
     }
 }
-```*/
+```
 
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
 
