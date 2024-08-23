@@ -666,6 +666,33 @@ import com.example.demo.validators.ValidMin;
 @ValidMin
 ```
 
+<strong>Filename: EnufPartsValidator.java</strong>
+
+Lines 28-48: Updated EnufPartValidator to throw a custom constraint if product inventory falls below minimum.
+```java
+    @Override
+    public boolean isValid(Product product, ConstraintValidatorContext constraintValidatorContext) {
+        if(context==null) return true;
+        if(context!=null)myContext=context;
+        ProductService repo = myContext.getBean(ProductServiceImpl.class);
+        if (product.getId() != 0) {
+            Product myProduct = repo.findById((int) product.getId());
+            for (Part p : myProduct.getParts()) {
+                if (p.getInv()<(product.getInv()-myProduct.getInv())) {
+                    constraintValidatorContext.disableDefaultConstraintViolation();
+                    constraintValidatorContext.buildConstraintViolationWithTemplate("Inventory level of part " + p.getName() + " is insufficient.").addConstraintViolation();
+                    return false;
+                }
+            }
+            return true;
+        }
+        else{
+                return true;
+            }
+    }
+}
+```
+
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
 
 
