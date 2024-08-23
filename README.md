@@ -594,7 +594,7 @@ H.  Add validation for between or at the maximum and minimum fields. The validat
 
 <strong>Filename: ValidMin.java</strong>
 
-Lines 1-24: Added a ValidMin validator to thrown and error message when parts drop below the minimum inventory.
+Lines 1-24: Added a ValidMin validator to throw an error message when parts drop below the minimum inventory.
 ```java
 package com.example.demo.validators;
 
@@ -690,6 +690,36 @@ Lines 28-48: Updated EnufPartValidator to throw a custom constraint if product i
                 return true;
             }
     }
+}
+```
+
+<strong>Filename: ValidMax.java</strong>
+
+Lines 1-24: Added a ValidMax validator to throw an error message when parts rise above the maximum.
+```java
+package com.example.demo.validators;
+
+import javax.validation.Constraint;
+import javax.validation.Payload;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/**
+ *
+ *
+ *
+ *
+ */
+@Constraint(validatedBy = {ValidMaxValidator.class})
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface ValidMax {
+    String message() default "Inventory goes above the maximum inventory!";
+    Class<?> [] groups() default {};
+    Class<? extends Payload> [] payload() default {};
+
 }
 ```
 
