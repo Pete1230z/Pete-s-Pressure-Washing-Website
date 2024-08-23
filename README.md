@@ -758,7 +758,14 @@ public class ValidMaxValidator implements ConstraintValidator<ValidMax, Part> {
 }
 ```
 
+<strong>Filename: Part.java</strong>
 
+Lines 4 and 20: imported and called validator.ValidMax.
+```java
+import com.example.demo.validators.ValidMax;
+
+@ValidMax
+```
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
 
 
