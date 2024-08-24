@@ -14,10 +14,10 @@
     <title>Pete's Pressure Washing</title>
 </head>
 <body>
-<a id="aboutbutton" class="btn btn-primary btn-sm mb-3" href="/about">About Us</a>
 <div class="container">
     <h1>Pete's Pressure Washing</h1>
     <hr>
+    <a id="aboutbutton" class="btn btn-primary btn-sm mb-3" href="/about">About Us</a>
     <h2>Pressure Washing Parts</h2>
     <form th:action="@{/mainscreen}">
         Filter: <input type="text" name="partkeyword" id="partkeyword" size="50" th:value="${partkeyword}" required />
@@ -99,11 +99,6 @@
     * {
         border: 1px solid black;
         align-content: center;
-    }
-
-    #aboutbutton {
-       margin-left: 310px;
-
     }
 
     body {

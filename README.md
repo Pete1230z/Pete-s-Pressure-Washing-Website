@@ -34,12 +34,15 @@ Lines 91-93: Added a footer
     Copyright 2024, Pete's Pressure Washing
 </footer>
 ```
-Lines 97-121: Added CSS Styling
+Lines 97-124: Updated CSS Styling
 ```html
+<!--CSS Styling-->
 <style>
     * {
         border: 1px solid black;
+        align-content: center;
     }
+
     body {
         background: #DAA520;
         color: #fff;
@@ -135,7 +138,7 @@ Line 17: Added a link to the about page
 ```html
 <a href="about.html">About Us</a>
 ```
-Line 17: Refined the link to the about page
+Line 20: Refined the link to the about page
 ```html
 <a id="aboutbutton" class="btn btn-primary aboutbutton" href="about.html">About Us</a>
 ```
