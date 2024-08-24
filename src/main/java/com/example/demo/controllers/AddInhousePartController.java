@@ -1,11 +1,9 @@
 package com.example.demo.controllers;
 
 import com.example.demo.domain.InhousePart;
+import com.example.demo.domain.OutsourcedPart;
 import com.example.demo.domain.Part;
-import com.example.demo.service.InhousePartService;
-import com.example.demo.service.InhousePartServiceImpl;
-import com.example.demo.service.PartService;
-import com.example.demo.service.PartServiceImpl;
+import com.example.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -31,8 +29,8 @@ public class AddInhousePartController{
 
     @GetMapping("/showFormAddInPart")
     public String showFormAddInhousePart(Model theModel){
-        InhousePart inhousepart=new InhousePart();
-        theModel.addAttribute("inhousepart",inhousepart);
+        Part part=new InhousePart();
+        theModel.addAttribute("inhousepart",part);
         return "InhousePartForm";
     }
 
