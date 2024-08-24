@@ -776,6 +776,46 @@ import com.example.demo.validators.ValidMax;
 ```
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
 
+<strong>Filename: PartTest.java</strong>
+
+Lines 160-194: Added four unit tests for minimum and maximum inventory fields.
+```java
+@Test
+    void setMin() {
+        int minInv = 1;
+        partIn.setMin(minInv);
+        assertEquals(minInv,partIn.getMinInv());
+        partOut.setMin(minInv);
+        assertEquals(minInv,partOut.getMinInv());
+    }
+
+    @Test
+    void getMinInv() {
+        int minInv = 1;
+        partIn.setMin(minInv);
+        assertEquals(minInv,partIn.getMinInv());
+        partOut.setMin(minInv);
+        assertEquals(minInv,partOut.getMinInv());
+    }
+
+    @Test
+    void setMax() {
+        int maxInv = 200;
+        partIn.setMax(maxInv);
+        assertEquals(maxInv,partIn.getMaxInv());
+        partOut.setMax(maxInv);
+        assertEquals(maxInv,partOut.getMaxInv());
+    }
+
+    @Test
+    void getMaxInv() {
+        int maxInv = 200;
+        partIn.setMax(maxInv);
+        assertEquals(maxInv,partIn.getMaxInv());
+        partOut.setMax(maxInv);
+        assertEquals(maxInv,partOut.getMaxInv());
+    }
+```
 
 J.  Remove the class files for any unused validators in order to clean your code.
 
