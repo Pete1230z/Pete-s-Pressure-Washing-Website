@@ -595,6 +595,15 @@ Lines 50-55: Added limits method check prior to partRepository.save.
 
 }
 ```
+
+<strong>Filename: mainscreen.html</strong>
+
+Lines 48-49 added min and max fields so that they are displayed in main screen.
+```html
+           <td th:text="${tempPart.minInv}">1</td>
+<td th:text="${tempPart.maxInv}">1</td>
+```
+
 H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
 •  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
 •  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
