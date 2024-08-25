@@ -1,5 +1,4 @@
 package com.example.demo.domain;
-import com.example.demo.validators.ValidDeletePart;
 import com.example.demo.validators.ValidMin;
 import com.example.demo.validators.ValidMax;
 import javax.persistence.*;
@@ -8,6 +7,7 @@ import javax.validation.constraints.Max;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+
 
 /**
  *
@@ -18,7 +18,6 @@ import java.util.Set;
 @Entity
 @ValidMin
 @ValidMax
-@ValidDeletePart
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="part_type",discriminatorType = DiscriminatorType.INTEGER)
 //
@@ -34,6 +33,7 @@ public abstract class Part implements Serializable {
     int inv;
     @Min(value = 0, message = "Minimum inventory value must be positive")
     int minInv;
+    @Min(value = 0, message = "Maximum inventory must be positive")
     @Max(value = 100, message = "Maximum inventory value must fall within set maximum")
     int maxInv;
 
@@ -106,17 +106,22 @@ public abstract class Part implements Serializable {
         return minInv;
     }
 
-    public void setMin(int minInv) { this.minInv = minInv; }
+    public void setMinInv(int minInv) {
+        this.minInv = minInv;
+    }
 
     public int getMaxInv() {
         return maxInv;
     }
 
-    public void setMax(int maxInv) { this.maxInv = maxInv; }
+    public void setMaxInv(int maxInv) {
+        this.maxInv = maxInv;
+    }
 
     public String toString(){
         return this.name;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -127,7 +132,7 @@ public abstract class Part implements Serializable {
         return id == part.id;
     }
 
-    public void limits() {
+    public void validateLimits() {
         if (this.inv < this.minInv) {
             throw new RuntimeException("Inventory is below minimum: " + this.minInv);
         } else if (this.inv > this.maxInv) {

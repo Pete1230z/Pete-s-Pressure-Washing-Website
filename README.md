@@ -492,9 +492,9 @@ public int getMaxInv() {
 public void setMax(int maxInv) { this.maxInv = maxInv; }
 ```
 
-Lines 126-132: Created a method to check if inv is below or above the min and max.
+Updated lines 135-141: Created a method to check if inv is below or above the min and max.
 ```java
-     public void limits() {
+     public void validateLimits() {
     if (this.inv < this.minInv) {
         throw new RuntimeException("Inventory is below minimum: " + this.minInv);
     } else if (this.inv > this.maxInv) {
