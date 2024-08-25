@@ -49,7 +49,7 @@ public class InhousePartServiceImpl implements InhousePartService {
 
     @Override
     public void save(InhousePart thePart) {
-        thePart.validateLimits();
+        thePart.validateInventory();
         partRepository.save(thePart);
 
     }

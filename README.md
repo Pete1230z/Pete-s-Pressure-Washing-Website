@@ -562,11 +562,11 @@ spring.datasource.url=jdbc:h2:file:~/petes-pressure-washing-db
 
 <strong>Filename: PartServiceImpl.java</strong>
 
-Lines 57-62: Added limits method check prior to partRepository.save.
+Updated lines 57-62: Added limits method check prior to partRepository.save.
 ```java
     @Override
     public void save(Part thePart) {
-            thePart.limits();
+            thePart.validateInventory();
             partRepository.save(thePart);
 
     }
@@ -574,11 +574,11 @@ Lines 57-62: Added limits method check prior to partRepository.save.
 
 <strong>Filename: InhousePartServiceImpl.java</strong>
 
-Lines 52-57: Added limits method check prior to partRepository.save.
+Updated lines 52-57: Added limits method check prior to partRepository.save.
 ```java
     @Override
     public void save(InhousePart thePart) {
-        thePart.limits();
+        thePart.validateInventory();
         partRepository.save(thePart);
 
     }
@@ -586,11 +586,11 @@ Lines 52-57: Added limits method check prior to partRepository.save.
 
 <strong>Filename: OutsourcedPartServiceImpl.java</strong>
 
-Lines 50-55: Added limits method check prior to partRepository.save.
+Updated lines 50-55: Added limits method check prior to partRepository.save.
 ```java
 @Override 
   public void save(OutsourcedPart thePart) {
-    thePart.limits();
+    thePart.validateInventory();
     partRepository.save(thePart);
 
 }

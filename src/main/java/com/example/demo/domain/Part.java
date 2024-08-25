@@ -7,6 +7,7 @@ import javax.validation.constraints.Max;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Logger;
 
 
 /**
@@ -23,6 +24,7 @@ import java.util.Set;
 //
 @Table(name="Parts")
 public abstract class Part implements Serializable {
+    private static final Logger logger = Logger.getLogger(Part.class.getName());
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
@@ -132,11 +134,11 @@ public abstract class Part implements Serializable {
         return id == part.id;
     }
 
-    public void validateLimits() {
+    public void validateInventory() {
         if (this.inv < this.minInv) {
-            throw new RuntimeException("Inventory is below minimum: " + this.minInv);
+            throw new RuntimeException("Inventory is below minimum.");
         } else if (this.inv > this.maxInv) {
-            throw new RuntimeException("Inventory is above maximum: " + this.maxInv);
+            throw new RuntimeException("Inventory is above maximum.");
         }
     }
 
