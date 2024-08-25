@@ -820,6 +820,7 @@ Lines 160-194: Added four unit tests for minimum and maximum inventory fields.
 J.  Remove the class files for any unused validators in order to clean your code.
 
 Deleted unused validators: <strong>Filename: DeletePartValidator</strong>
+Deleted unused validators: <strong>Filename: ValidDeletePart</strong>
 
 K.  Demonstrate professional communication in the content and presentation of your submission.
 
